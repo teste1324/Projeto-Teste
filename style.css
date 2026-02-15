@@ -1,0 +1,142 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', sans-serif;
+    background: #ffffff; /* neutro */
+    color: #1e1e1e;
+    min-height: 100vh;
+    padding: 80px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before,
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    transition: opacity 0.8s ease;
+    z-index: -1;
+}
+
+/* Azul (padrão visível) */
+body::before {
+    background: linear-gradient(135deg, #b7f8db, #50a7f5);
+    opacity: 1;
+}
+
+/* Verde (começa invisível) */
+body::after {
+    background: linear-gradient(135deg, #a8ff78, #78ffd6);
+    opacity: 0;
+}
+
+/* Quando celebra */
+body.celebration::before {
+    opacity: 0;
+}
+
+body.celebration::after {
+    opacity: 1;
+}
+
+.celebration {
+    background: linear-gradient(135deg, #a8ff78, #78ffd6);
+}
+
+.container {
+    max-width: 800px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2.8rem;
+    margin-bottom: 60px;
+    line-height: 1.2;
+}
+
+p {
+    font-size: 1.2rem;
+    line-height: 1.9;
+    margin-bottom: 40px;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s ease;
+}
+
+p.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.highlight {
+    font-weight: 500;
+    color: #0c6f4f;
+}
+
+.final {
+    margin-top: 80px;
+    font-size: 1.4rem;
+    font-weight: 500;
+}
+
+.signature {
+    margin-top: 30px;
+    font-weight: 600;
+}
+
+button {
+    margin-top: 40px;
+    padding: 12px 28px;
+    border-radius: 30px;
+    border: none;
+    background: #0c6f4f;
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: 0.3s;
+    margin-right: 30px;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+.textComplete {
+    margin-top: 120px;
+}
+
+.textComplete.show {
+    display: block;
+}
+
+#buttons {
+    max-width: 800px;
+    margin-top: 40px;
+}
+
+#buttons button {
+    margin-right: 30px;
+}
+
+.fade-section {
+    opacity: 1;
+    transition: opacity 0.6s ease;
+}
+
+.fade-section.fade-out {
+    opacity: 0;
+}
+
+.hidden {
+    display: none;
+}
