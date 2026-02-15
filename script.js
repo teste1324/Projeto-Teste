@@ -39,7 +39,7 @@ Não sou muito de escrever, mas dessa vez consegui até um "ler mais" no WhatsAp
 Não vou me despedir, pois nunca é um adeus.
 
 Te amo,
-Piva 💚
+Piva
 
 Saudações palmeirenses.`;
 
@@ -100,4 +100,5 @@ function textComplete() {
 
 function sendMessage() {
     window.open(link, "_blank");
+
 }
