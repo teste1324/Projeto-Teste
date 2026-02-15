@@ -3,6 +3,8 @@ const main = document.getElementById("main");
 const complete = document.getElementById("fullText");
 const btn = document.getElementById("toggleBtn");
 
+
+
 const mensagem = `Eu já quis ter essa conversa com vc há muito tempo, mas nunca soube como. Agora que você realmente vai embora, acho que preciso falar. Cresci muito tempo morando apenas com meu pai, e homem com homem demonstra amor de formas diferentes. Com isso, nunca fui acostumado a falar que amo alguém nem a demonstrar muito carinho. Minha forma de demonstrar é perturbando, xingando e enchendo o saco kkkk, sei que vc já sabe disso (ou espero que saiba).
 
 Dia 26 de fevereiro de 2022, carnaval, eu não era uma pessoa muito sociável, e nesse dia tinha muita gente que eu não conhecia, mas conheci você, minha melhor amiga. Na época, eu me aproximei porque queria ficar com você kkkk, mas vc namorava e eu não achava certo dar em cima de você.
@@ -63,7 +65,7 @@ function textComplete() {
         }, 600);
 
         btn.innerText = "Ocultar texto completo";
-       
+
     } else {
         complete.classList.add("fade-out");
 
@@ -76,7 +78,7 @@ function textComplete() {
             whatsBtn.classList.add("hidden")
         }, 600);
 
-        
+
         btn.innerText = "Clique aqui para ler tudo";
     }
 }
@@ -84,3 +86,38 @@ function textComplete() {
 function sendMessage() {
     window.open(link, "_blank");
 }
+
+
+
+// Data alvo da contagem
+const dataAlvo = new Date(2026, 2, 4, 0, 0, 0); // 20 de Março de 2026
+
+// Pega o div do contador
+const contador = document.getElementById("contador");
+
+// Função para atualizar o contador
+function atualizarContagem() {
+    const agora = new Date();
+    const diferenca = dataAlvo - agora;
+
+    if (diferenca <= 0) {
+        contador.innerHTML = "Chegou o dia!";
+        clearInterval(intervalo);
+        return;
+    }
+
+    const dias = Math.floor(diferenca / (1000 * 60 * 60 * 24));
+    const horas = Math.floor((diferenca % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutos = Math.floor((diferenca % (1000 * 60 * 60)) / (1000 * 60));
+    const segundos = Math.floor((diferenca % (1000 * 60)) / 1000);
+
+    contador.innerHTML = `${dias}d ${horas}h ${minutos}m ${segundos}s`;
+}
+
+// Espera o HTML carregar antes de iniciar
+window.onload = function () {
+    atualizarContagem(); // Atualiza imediatamente
+    intervalo = setInterval(atualizarContagem, 1000); // Atualiza a cada segundo
+};
+
+let intervalo; // variável global do setInterval
