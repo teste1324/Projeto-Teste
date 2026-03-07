@@ -61,7 +61,7 @@ function sendMessage() {
 
 
 // Data alvo da contagem
-const dataAlvo = new Date(2026, 2, 4, 0, 0, 0);
+const dataAlvo = new Date(2026, 2, 20, 0, 0, 0);
 
 // Pega o div do contador
 const contador = document.getElementById("contador");
@@ -90,5 +90,6 @@ window.onload = function () {
     atualizarContagem(); // Atualiza imediatamente
     intervalo = setInterval(atualizarContagem, 1000); // Atualiza a cada segundo
 };
+
 
 let intervalo; // variável global do setInterval
